@@ -7,6 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 /**
+ * 参考：https://www.wdbyte.com/java8/java8-list-to-map/
  * @author <a href="mailto:410486047@qq.com">Grey</a>
  * @date 2021/11/16
  * @since 1.8
