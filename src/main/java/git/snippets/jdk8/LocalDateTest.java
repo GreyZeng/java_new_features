@@ -1,6 +1,9 @@
 package git.snippets.jdk8;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
 
 /**
@@ -28,6 +31,13 @@ public class LocalDateTest {
     static void until() {
         LocalDate birthday = LocalDate.of(1989, 9, 27);
         System.out.println(birthday.until(LocalDate.now(), ChronoUnit.DAYS));
+    }
+
+    // 有时区的精确时间
+    static void zone() {
+        ZonedDateTime nowZone = LocalDateTime.now().atZone(ZoneId.systemDefault());
+        System.out.println("当前精确时间（有时区）：" + nowZone);
+        System.out.println("当前精确时间（有时区）：" + nowZone.getYear() + "-" + nowZone.getMonthValue() + "-" + nowZone.getDayOfMonth() + " " + nowZone.getHour() + "-" + nowZone.getMinute() + "-" + nowZone.getSecond());
     }
 
 }
