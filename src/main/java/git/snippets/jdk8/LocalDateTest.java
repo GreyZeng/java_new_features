@@ -1,9 +1,6 @@
 package git.snippets.jdk8;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.temporal.ChronoUnit;
 
 /**
@@ -11,6 +8,7 @@ import java.time.temporal.ChronoUnit;
  * @date 2021/11/18
  * @since 1.8
  */
+// https://www.wdbyte.com/2019/10/jdk/jdk8-time/
 public class LocalDateTest {
     public static void main(String[] args) {
         try {
@@ -19,6 +17,8 @@ public class LocalDateTest {
             e.printStackTrace();
         }
         until();
+        zone();
+        createTime();
     }
 
     static void errorDate() {
@@ -38,6 +38,17 @@ public class LocalDateTest {
         ZonedDateTime nowZone = LocalDateTime.now().atZone(ZoneId.systemDefault());
         System.out.println("当前精确时间（有时区）：" + nowZone);
         System.out.println("当前精确时间（有时区）：" + nowZone.getYear() + "-" + nowZone.getMonthValue() + "-" + nowZone.getDayOfMonth() + " " + nowZone.getHour() + "-" + nowZone.getMinute() + "-" + nowZone.getSecond());
+    }
+
+    static void createTime() {
+        LocalDateTime ofTime = LocalDateTime.of(2019, 10, 1, 8, 8, 8);
+        System.out.println("当前精确时间：" + ofTime);
+
+        LocalDate localDate = LocalDate.of(2019, 10, 01);
+        System.out.println("当前日期：" + localDate);
+
+        LocalTime localTime = LocalTime.of(12, 01, 01);
+        System.out.println("当天时间：" + localTime);
     }
 
 }
