@@ -14,10 +14,17 @@ public class PredicateTest {
     public static void main(String[] args) {
         predicateTest();
         predicateTest2();
+        predicateTest3();
+    }
+
+    private static void predicateTest3() {
+        List<Integer> number = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
+        Predicate<Integer> p = n -> n > 3;
+        number = number.stream().filter(p.negate()).collect(Collectors.toList());
+        System.out.println(number);
     }
 
     static void predicateTest() {
-
         Predicate<String> predicate = String::isEmpty;
         System.out.println(predicate.test(" "));
         System.out.println(predicate.test(""));
@@ -34,5 +41,5 @@ public class PredicateTest {
         list = list.stream().filter(filter).collect(Collectors.toList());
         System.out.println(list);
     }
-    // TODO Predicate negate
+
 }
