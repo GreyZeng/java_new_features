@@ -1,5 +1,9 @@
 package git.snippets.jdk8;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 
 /**
@@ -13,7 +17,24 @@ public class FunctionInterfaceDemo {
         func1();
         func3();
         func4();
+        func5();
     }
+
+    private static void func5() {
+        List<String> list = Arrays.asList("a", "bc", "dfg");
+        Function<String, Integer> lenFunc = s -> s.length();
+        Map<String, Integer> stringIntegerMap = listToMap(list, lenFunc);
+        System.out.println(stringIntegerMap);
+    }
+
+    static <T, R> Map<T, R> listToMap(List<T> list, Function<T, R> function) {
+        Map<T, R> map = new HashMap<>();
+        for (T t : list) {
+            map.put(t, function.apply(t));
+        }
+        return map;
+    }
+
 
     static void func0() {
         FunctionDemo demo = (name, age) -> System.out.println("我叫" + name + "我今年" + age + "岁");
