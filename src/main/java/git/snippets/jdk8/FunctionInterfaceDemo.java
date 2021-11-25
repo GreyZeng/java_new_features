@@ -25,6 +25,8 @@ public class FunctionInterfaceDemo {
         Function<String, Integer> lenFunc = s -> s.length();
         Map<String, Integer> stringIntegerMap = listToMap(list, lenFunc);
         System.out.println(stringIntegerMap);
+        Function<String, String> upperFunc = s -> s.toUpperCase();
+        System.out.println(listToMap(list, upperFunc));
     }
 
     static <T, R> Map<T, R> listToMap(List<T> list, Function<T, R> function) {
