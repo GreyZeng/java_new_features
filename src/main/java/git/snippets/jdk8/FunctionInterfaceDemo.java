@@ -1,9 +1,6 @@
 package git.snippets.jdk8;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 
 /**
@@ -18,6 +15,22 @@ public class FunctionInterfaceDemo {
         func3();
         func4();
         func5();
+        func6();
+    }
+
+    // List -> List<Object>
+    private static void func6() {
+        List<String> list = Arrays.asList("a", "bc", "def");
+        List<String> map = map(list, String::toUpperCase);
+        System.out.println(map);
+    }
+
+    static <T, R> List<R> map(List<T> list, Function<T, R> function) {
+        List<R> result = new ArrayList<>(list.size());
+        for (T t : list) {
+            result.add(function.apply(t));
+        }
+        return result;
     }
 
     private static void func5() {
@@ -36,7 +49,6 @@ public class FunctionInterfaceDemo {
         }
         return map;
     }
-
 
     static void func0() {
         FunctionDemo demo = (name, age) -> System.out.println("我叫" + name + "我今年" + age + "岁");
