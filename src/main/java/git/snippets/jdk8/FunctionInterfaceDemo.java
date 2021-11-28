@@ -2,7 +2,9 @@ package git.snippets.jdk8;
 
 import java.util.*;
 import java.util.function.BiFunction;
+import java.util.function.BiPredicate;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * @author <a href="mailto:410486047@qq.com">Grey</a>
@@ -22,6 +24,45 @@ public class FunctionInterfaceDemo {
         // 实现工厂模式
         factory();
         filter();
+        biPredicate();
+        // BiPredicate实现过滤器
+        biPredicateFilter();
+    }
+
+    private static void biPredicateFilter() {
+        List<Cat> list = new ArrayList<>();
+        list.add(new Cat(1, "abc"));
+        list.add(new Cat(2, "bcd"));
+        list.add(new Cat(3, "ccc"));
+        // 筛选id为2的cat
+        BiPredicate<Integer, String> identify = (id, name) -> id == 2;
+        // 选名字为ccc的cat
+        BiPredicate<Integer, String> name = (id, n) -> "ccc".equals(n);
+
+        BiPredicate<Integer, String> idAndName = (id, n) -> "ccc".equals(n) || id == 2;
+        System.out.println(filter(list, identify));
+        System.out.println(filter(list, name));
+        System.out.println(filter(list, idAndName));
+    }
+
+    public static <T extends Cat> List<T> filter(List<T> list, BiPredicate<Integer, String> biPredicate) {
+        return list.stream().filter(cat -> biPredicate.test(cat.getId(), cat.getName()))
+                .collect(Collectors.toList());
+    }
+
+    private static void biPredicate() {
+        BiPredicate<String, Integer> biPredicate = (s, i) -> s.length() == i;
+        System.out.println(biPredicate.test("abc", 3));
+        System.out.println(biPredicate.test("abc", 4));
+
+        BiPredicate<String, String> startsWith = String::startsWith;
+        BiPredicate<String, String> endsWith = String::endsWith;
+        System.out.println(startsWith.and(endsWith).test("33abb", "b"));
+        System.out.println(startsWith.and(endsWith).test("33abb3", "3"));
+        System.out.println(startsWith.test("abc", "a"));
+        System.out.println(startsWith.test("abc", "ab"));
+        System.out.println(startsWith.test("abc", "abc"));
+        System.out.println(startsWith.test("abc", "abD"));
     }
 
     // 构建一个可以过滤指定集合条件的 filter 方法。
@@ -74,6 +115,22 @@ public class FunctionInterfaceDemo {
     static class Cat {
         private int id;
         private String name;
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
 
         public Cat(int id, String name) {
             this.id = id;
