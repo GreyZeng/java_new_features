@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 /**
  * @author <a href="mailto:410486047@qq.com">Grey</a>
  * @date 2021/11/24
- * @since
+ * @since 1.8
  */
 public class PredicateTest {
     public static void main(String[] args) {

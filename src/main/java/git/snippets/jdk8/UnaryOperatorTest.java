@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * @author <a href="mailto:410486047@qq.com">Grey</a>
  * @date 2021/11/28
  * @see UnaryOperator
- * @since
+ * @since 1.8
  */
 public class UnaryOperatorTest {
     public static void main(String[] args) {
