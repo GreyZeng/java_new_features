@@ -9,8 +9,11 @@ import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
 /**
+ * UnaryOperator使用
+ *
  * @author <a href="mailto:410486047@qq.com">Grey</a>
  * @date 2021/11/28
+ * @see UnaryOperator
  * @since
  */
 public class UnaryOperatorTest {
