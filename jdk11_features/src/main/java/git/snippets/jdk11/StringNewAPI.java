@@ -6,7 +6,7 @@ package git.snippets.jdk11;
  * @author <a href="mailto:410486047@qq.com">Grey</a>
  * @date 2021/11/29
  * @see String
- * @since
+ * @since 11
  */
 public class StringNewAPI {
     public static void main(String[] args) {
@@ -33,7 +33,7 @@ public class StringNewAPI {
         System.out.println(repeat3);
     }
 
-    // 去掉前后端的空白字符
+    //trim 只能去除半角空格，而 strip 是去除各种空白符。
     static void stripTest() {
         String a = "   bbbd a  ";
         String b = a.strip();
