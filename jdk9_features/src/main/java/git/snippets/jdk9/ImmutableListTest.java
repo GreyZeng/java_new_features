@@ -19,10 +19,12 @@ public class ImmutableListTest {
     static void test() {
         List<String> a = List.of("a", "b");
         List<String> b = List.of("a", "b");
+        // 创建了不可变的List，不可以执行：a.add("b");添加进入
         System.out.println(a.hashCode() == b.hashCode());
 
         // notes: 不能插入重复字符
         Set<String> ab = Set.of("ab", "bc");
+
         System.out.println(ab.size());
 
 
