@@ -1,6 +1,5 @@
 package git.snippets.jdk8;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.UUID;
