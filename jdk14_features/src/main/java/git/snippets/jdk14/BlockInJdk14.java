@@ -9,14 +9,14 @@ package git.snippets.jdk14;
  * @since 14
  */
 public class BlockInJdk14 {
-    public static void main(String[] args) {
-        String content = """
-                {
-                    "hello": 1,\
-                    "world": 2,
-                    "hello world": "1\s2",
-                }
-                 """;
-        System.out.println(content);
-    }
+//    public static void main(String[] args) {
+//        String content = """
+//                {
+//                    "hello": 1,\
+//                    "world": 2,
+//                    "hello world": "1\s2",
+//                }
+//                 """;
+//        System.out.println(content);
+//    }
 }

@@ -10,11 +10,11 @@ import java.util.ArrayList;
  * @since 14
  */
 public class InstanceofInJdk14 {
-    public static void main(String[] args) {
-        Object obj = new ArrayList<>();
-        if (obj instanceof ArrayList list) {
-            list.add("abc");
-        }
-        System.out.println(obj);
-    }
+//    public static void main(String[] args) {
+//        Object obj = new ArrayList<>();
+//        if (obj instanceof ArrayList list) {
+//            list.add("abc");
+//        }
+//        System.out.println(obj);
+//    }
 }
