@@ -15,7 +15,6 @@ public class StreamTest {
     // 数据源（source） -> 数据处理 / 转换（intermedia） -> 结果处理（terminal ）
     public static void main(String[] args) {
         demo1();
-        demo2();
         mathTest();
         groupByTest();
         partitioningByTest();
@@ -29,13 +28,6 @@ public class StreamTest {
                 .filter(name -> name.length() == 4)
                 .map(name -> "This is " + name)
                 .forEach(System.out::println);
-    }
-
-    static void demo2() {
-        List<String> nameList = Arrays.asList("Darcy", "Chris", "Linda", "Sid", "Kim", "Jack", "Poul", "Peter");
-        List<String> upperCaseNameList = nameList.stream()
-                .map(String::toUpperCase).toList();
-        upperCaseNameList.forEach(name -> System.out.println(name + ","));
     }
 
     static void mathTest() {
@@ -111,7 +103,6 @@ public class StreamTest {
         Stream<UUID> generate = Stream.generate(UUID::randomUUID);
         generate.limit(5).forEach(System.out::println);
     }
-
 
 
 }
