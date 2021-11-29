@@ -13,6 +13,7 @@
         <module>jdk9_features</module>
         <module>jdk10_features</module>
         <module>jdk11_features</module>
+        <module>jdk12_features</module>
     </modules>
     <name>${artifactId}</name>
     <properties>
