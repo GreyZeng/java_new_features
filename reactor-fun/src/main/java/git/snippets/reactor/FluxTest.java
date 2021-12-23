@@ -40,7 +40,9 @@ public class FluxTest {
     }
 
     private static void collectMap() {
-        
+        Flux<String> just = Flux.just("Aa", "Bb", "Cc");
+        Mono<Map<Character, String>> mapMono = just.collectMap(c -> c.charAt(0));
+        StepVerifier.create(mapMono).expectNextMatches(m -> m.get('A').equals("Aa") && m.get('B').equals("Bb") && m.get('C').equals("Cc") && m.size() == 3).verifyComplete();
     }
 
     private static void collectList() {

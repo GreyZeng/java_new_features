@@ -19,6 +19,7 @@
         <module>jdk15_features</module>
         <module>jdk16_features</module>
         <module>jdk17_features</module>
+        <module>reactor-fun</module>
     </modules>
     <name>${artifactId}</name>
     <properties>
