@@ -1,6 +1,9 @@
 package git.snippets.jdk8;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
@@ -23,6 +26,7 @@ public class ForEachTest {
         forEachUseConsume();
     }
 
+    // jdk8之前常规遍历操作
     static void normForEach() {
         List<String> list = Arrays.asList("a", "b", "c");
         for (String item : list) {
@@ -33,7 +37,10 @@ public class ForEachTest {
     static void newForEach() {
         List<String> list = Arrays.asList("a", "b", "c");
         list.forEach(System.out::println);
-        list.forEach(s -> System.out.println(s));
+        list.forEach(s -> {
+            System.out.println("新的遍历方式");
+            System.out.println(s);
+        });
     }
 
     static void mapNormForEach() {

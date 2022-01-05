@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 /**
  * 参考：https://www.wdbyte.com/java8/java8-list-to-map/
+ *
  * @author <a href="mailto:410486047@qq.com">Grey</a>
  * @date 2021/11/16
  * @since 1.8
@@ -28,8 +29,7 @@ public class List2Map {
         list.add(new Dog("田园犬", 3));
 
         // to map,key dog name,value ,dog age
-        Map<String, Integer> dogMap = list.stream()
-                .collect(Collectors.toMap(Dog::getName, Dog::getAge));
+        Map<String, Integer> dogMap = list.stream().collect(Collectors.toMap(Dog::getName, Dog::getAge));
 
         System.out.println(dogMap);
     }
@@ -42,40 +42,36 @@ public class List2Map {
         list.add(new Dog("田园犬", 3));
 
 // to map,key dog name,value ,dog age
-        Map<String, Dog> dogMap = list.stream()
-                .collect(Collectors.toMap(Dog::getName, dog -> dog));
+        Map<String, Dog> dogMap = list.stream().collect(Collectors.toMap(Dog::getName, dog -> dog));
 
         System.out.println(dogMap);
     }
 
-    // with duplicate key
+    /**
+     * 处理重复数据
+     */
     static void sample3() {
-        List<Dog> list = new ArrayList<>();
+        List<Dog> list = new ArrayList<>(4);
         list.add(new Dog("牧羊犬", 1));
         list.add(new Dog("牧羊犬", 2));
         list.add(new Dog("哈士奇", 2));
         list.add(new Dog("田园犬", 3));
 
-// to map,key dog name,value ,dog age
-        Map<String, Integer> dogMap = list.stream()
-                .collect(Collectors.toMap(Dog::getName, Dog::getAge, (oldData, newData) -> newData));
-
+        // 包含重复数据的时候，只保留最新的一条
+        Map<String, Integer> dogMap = list.stream().collect(Collectors.toMap(Dog::getName, Dog::getAge, (oldData, newData) -> newData));
         System.out.println(dogMap);
     }
 
-    // specific map type
+    /**
+     * 重复数据->ConcurrentHashMap
+     */
     static void sample4() {
         List<Dog> list = new ArrayList<>();
         list.add(new Dog("牧羊犬", 1));
         list.add(new Dog("牧羊犬", 2));
         list.add(new Dog("哈士奇", 2));
         list.add(new Dog("田园犬", 3));
-
-        // to map,key dog name,value ,dog age
-        Map<String, Integer> dogMap = list.stream()
-                .collect(Collectors.toMap(Dog::getName, Dog::getAge,
-                        (oldData, newData) -> newData,
-                        ConcurrentHashMap::new));
+        Map<String, Integer> dogMap = list.stream().collect(Collectors.toMap(Dog::getName, Dog::getAge, (oldData, newData) -> newData, ConcurrentHashMap::new));
         System.out.println(dogMap.getClass());
     }
 }
@@ -111,9 +107,6 @@ class Dog {
 
     @Override
     public String toString() {
-        return "Dog{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+        return "Dog{" + "name='" + name + '\'' + ", age=" + age + '}';
     }
 }
