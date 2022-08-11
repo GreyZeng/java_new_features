@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>jdk1_7_features</module>
         <module>jdk1_8_features</module>
         <module>jdk9_features</module>
         <module>jdk10_features</module>
