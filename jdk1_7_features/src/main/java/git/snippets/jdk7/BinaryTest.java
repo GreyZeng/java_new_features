@@ -1,7 +1,7 @@
 package git.snippets.jdk7;
 
 /**
- * @since jdk1.7
+ * @since 1.7
  */
 public class BinaryTest {
     public static void main(String[] args) {
