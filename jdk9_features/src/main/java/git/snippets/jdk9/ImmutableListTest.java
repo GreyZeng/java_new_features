@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * 集合工厂
+ * 创建不可变集合
  *
  * @author <a href="mailto:410486047@qq.com">Grey</a>
  * @date 2021/11/28
@@ -17,21 +17,18 @@ public class ImmutableListTest {
     }
 
     static void test() {
-        List<String> a = List.of("a", "b");
-        List<String> b = List.of("a", "b");
-        // 创建了不可变的List，不可以执行：a.add("b");添加进入
-        System.out.println(a.hashCode() == b.hashCode());
+        List<String> list1 = List.of("a", "b");
+        // 创建了不可变的List，不可以执行add操作
+        System.out.println(list1); // true
 
-        // notes: 不能插入重复字符
-        Set<String> ab = Set.of("ab", "bc");
+        // 创建不可变的Set，不可以执行add操作
+        Set<String> set = Set.of("ab", "bc");
+        System.out.println(set.size());
 
-        System.out.println(ab.size());
-
-
-        Map<String, Integer> a1 = Map.of("a", 2, "b", 3, "c", 4);
-        System.out.println(a1);
-
-        Map<String, Integer> stringIntegerMap = Map.ofEntries(Map.entry("a", 1), Map.entry("b", 2));
-        System.out.println(stringIntegerMap);
+        // 创建了不可变Map，无法put元素
+        Map<String, Integer> map1 = Map.of("a", 2, "b", 3, "c", 4);
+        System.out.println(map1);
+        Map<String, Integer> map2 = Map.ofEntries(Map.entry("a", 1), Map.entry("b", 2));
+        System.out.println(map2);
     }
 }
