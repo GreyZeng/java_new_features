@@ -29,8 +29,35 @@ public class Person {
     Sex gender;
     String emailAddress;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGender(Sex gender) {
+        this.gender = gender;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public LocalDate getBirthday() {
+        return this.birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
 
     public void printPerson() {
         // ...
+    }
+
+    public static int compareByAge(Person a, Person b) {
+        return a.birthday.compareTo(b.birthday);
     }
 }
