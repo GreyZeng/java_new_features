@@ -23,7 +23,7 @@ public class ForEachTest {
         arrayForEach();
         parallelForEach();
         parallelForEachOrder();
-        forEachUseConsume();
+        forEachUseConsumer();
     }
 
     // jdk8之前常规遍历操作
@@ -43,6 +43,7 @@ public class ForEachTest {
         });
     }
 
+    // Map的遍历 jdk1.8之前
     static void mapNormForEach() {
         Map<Integer, String> map = new HashMap<>(3);
         map.put(1, "a");
@@ -53,6 +54,7 @@ public class ForEachTest {
         }
     }
 
+    //jdk1.8新的Map遍历方法
     static void mapNewForEach() {
         Map<Integer, String> map = new HashMap<>(3);
         map.put(1, "a");
@@ -64,6 +66,7 @@ public class ForEachTest {
         });
     }
 
+    // jdk1.8新增数组的遍历方法
     static void arrayForEach() {
         String[] array = {"a", "b", "c"};
         Arrays.stream(array).forEach(System.out::println);
@@ -81,7 +84,8 @@ public class ForEachTest {
         stream.parallel().forEachOrdered(System.out::println);
     }
 
-    static void forEachUseConsume() {
+    // 使用consumer
+    static void forEachUseConsumer() {
         Stream<String> s = Stream.of("ab", "bc");
         List<String> l = Arrays.asList("ab", "cd");
 

@@ -15,17 +15,17 @@ import java.util.function.Supplier;
 public class SupplierTest {
     public static void main(String[] args) throws InterruptedException {
         s1();
-        Supplier<Sharp> supplier = () -> new Sharp("abc");
-        Sharp obj1 = factory(supplier);
-        System.out.println(obj1);
+        //  Supplier实现工厂模式
+        System.out.println(factory(() -> new Sharp("abc")));
     }
 
     private static void s1() throws InterruptedException {
+        // 定义一个Supplier，可以生成区间为[0,10)的随机数
         Supplier<Integer> supplier = () -> new Random().nextInt(10);
         System.out.println(supplier.get());
         System.out.println(supplier.get());
+        // 获取当前时间
         Supplier<LocalDateTime> s2 = LocalDateTime::now;
-
         System.out.println(s2.get());
         Thread.sleep(1000);
         System.out.println(s2.get());
@@ -50,8 +50,6 @@ class Sharp {
 
     @Override
     public String toString() {
-        return "Sharp{" +
-                "name='" + name + '\'' +
-                '}';
+        return "Sharp{" + "name='" + name + '\'' + '}';
     }
 }

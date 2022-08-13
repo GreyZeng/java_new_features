@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 /**
- * 参考：https://www.wdbyte.com/java8/java8-list-to-map/
+ * list 转 map
  *
  * @author <a href="mailto:410486047@qq.com">Grey</a>
  * @date 2021/11/16
@@ -21,62 +21,61 @@ public class List2Map {
         sample4();
     }
 
-    // key name, value age;
+    /**
+     * key name, value number
+     */
     static void sample1() {
-        List<Dog> list = new ArrayList<>();
-        list.add(new Dog("牧羊犬", 1));
-        list.add(new Dog("哈士奇", 2));
-        list.add(new Dog("田园犬", 3));
+        List<Car> list = new ArrayList<>();
+        list.add(new Car("A", 1));
+        list.add(new Car("B", 2));
+        list.add(new Car("C", 3));
 
-        // to map,key dog name,value ,dog age
-        Map<String, Integer> dogMap = list.stream().collect(Collectors.toMap(Dog::getName, Dog::getAge));
+        // to map,key car name,value ,car number
+        Map<String, Integer> carMap = list.stream().collect(Collectors.toMap(Car::getName, Car::getNum));
 
-        System.out.println(dogMap);
-    }
-
-    // key name value object
-    static void sample2() {
-        List<Dog> list = new ArrayList<>();
-        list.add(new Dog("牧羊犬", 1));
-        list.add(new Dog("哈士奇", 2));
-        list.add(new Dog("田园犬", 3));
-
-// to map,key dog name,value ,dog age
-        Map<String, Dog> dogMap = list.stream().collect(Collectors.toMap(Dog::getName, dog -> dog));
-
-        System.out.println(dogMap);
+        System.out.println(carMap);
     }
 
     /**
-     * 处理重复数据
+     * key name value object
+     */
+    static void sample2() {
+        List<Car> list = new ArrayList<>();
+        list.add(new Car("A", 1));
+        list.add(new Car("B", 2));
+        list.add(new Car("C", 3));
+        Map<String, Car> carMap = list.stream().collect(Collectors.toMap(Car::getName, car -> car));
+        System.out.println(carMap);
+    }
+
+    /**
+     * 处理重复数据 包含重复数据的时候，只保留最新的一条
      */
     static void sample3() {
-        List<Dog> list = new ArrayList<>(4);
-        list.add(new Dog("牧羊犬", 1));
-        list.add(new Dog("牧羊犬", 2));
-        list.add(new Dog("哈士奇", 2));
-        list.add(new Dog("田园犬", 3));
-
-        // 包含重复数据的时候，只保留最新的一条
-        Map<String, Integer> dogMap = list.stream().collect(Collectors.toMap(Dog::getName, Dog::getAge, (oldData, newData) -> newData));
-        System.out.println(dogMap);
+        List<Car> list = new ArrayList<>(4);
+        list.add(new Car("A", 1));
+        list.add(new Car("A", 2));
+        list.add(new Car("B", 2));
+        list.add(new Car("C", 3));
+        Map<String, Integer> carMap = list.stream().collect(Collectors.toMap(Car::getName, Car::getNum, (oldData, newData) -> newData));
+        System.out.println(carMap);
     }
 
     /**
-     * 重复数据->ConcurrentHashMap
+     * 重复数据,包含重复数据的时候，只保留最新的一条,并把结果保存到ConcurrentHashMap
      */
     static void sample4() {
-        List<Dog> list = new ArrayList<>();
-        list.add(new Dog("牧羊犬", 1));
-        list.add(new Dog("牧羊犬", 2));
-        list.add(new Dog("哈士奇", 2));
-        list.add(new Dog("田园犬", 3));
-        Map<String, Integer> dogMap = list.stream().collect(Collectors.toMap(Dog::getName, Dog::getAge, (oldData, newData) -> newData, ConcurrentHashMap::new));
-        System.out.println(dogMap.getClass());
+        List<Car> list = new ArrayList<>();
+        list.add(new Car("A", 1));
+        list.add(new Car("A", 2));
+        list.add(new Car("B", 2));
+        list.add(new Car("C", 3));
+        Map<String, Integer> carMap = list.stream().collect(Collectors.toMap(Car::getName, Car::getNum, (oldData, newData) -> newData, ConcurrentHashMap::new));
+        System.out.println(carMap.getClass());
     }
 }
 
-class Dog {
+class Car {
     private String name;
 
     public String getName() {
@@ -87,26 +86,26 @@ class Dog {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
+    public Integer getNum() {
+        return num;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setNum(Integer num) {
+        this.num = num;
     }
 
-    private Integer age;
+    private Integer num;
 
-    public Dog() {
+    public Car() {
     }
 
-    public Dog(String name, Integer age) {
+    public Car(String name, Integer num) {
         this.name = name;
-        this.age = age;
+        this.num = num;
     }
 
     @Override
     public String toString() {
-        return "Dog{" + "name='" + name + '\'' + ", age=" + age + '}';
+        return "car{" + "name='" + name + '\'' + ", number=" + num + '}';
     }
 }

@@ -10,12 +10,19 @@ import java.util.function.ObjIntConsumer;
 
 /**
  * Consumer测试
+ * <p>
  * BiConsumer 传入两个任意类型参数，无返回值
+ * <p>
  * DoubleConsumer	传入一个 double 参数，无返回值
+ * <p>
  * IntConsumer	传入一个 int 参数，无返回值
+ * <p>
  * LongConsumer	传入一个 long 参数，无返回值
+ * <p>
  * ObjDoubleConsumer	传入一个任意类型参数，一个 double 参数，无返回值
+ * <p>
  * ObjIntConsumer	传入一个任意类型参数，一个 int 参数，无返回值
+ * <p>
  * ObjLongConsumer	传入一个任意类型参数，一个 long 参数，无返回值
  *
  * @author <a href="mailto:410486047@qq.com">Grey</a>
@@ -32,32 +39,32 @@ public class ConsumerTest {
         t4();
     }
 
+    // 多个Consumer结合使用
+    static void t1() {
+        Consumer<String> c = System.out::println;
+        Consumer<String> len = s -> System.out.print(s.length());
+        len.andThen(c).accept("hello");
+    }
+
     private static void t4() {
         List<String> list = Arrays.asList("ab", "abcd");
-        ObjIntConsumer<String> consumer = (s, value) -> {
-            if (s.length() > value) {
+        // 某个字符串串的长度大于给定的value值，就打印
+        list.forEach(s -> {
+            if (s.length() > 3) {
                 System.out.println(s);
             }
-        };
-        foreach(list, consumer, 3);
+        });
     }
 
-    private static <T> void foreach(List<T> list, ObjIntConsumer<T> consumer, int i) {
-        for (T t : list) {
-            consumer.accept(t, i);
-        }
-    }
-
-    //
-
+    // 打印map中的value满足条件的key值
     private static void t3() {
         Map<String, Integer> map = new HashMap<>();
         map.put("zhangshang", 17);
         map.put("list", 21);
         map.put("wangwu", 18);
         BiConsumer<String, Integer> consumer = (s, i) -> {
-            // 打印指定长度的字符串
-            if (i >= 18) {
+            // value大于18的记录，打印其value值
+            if (i > 18) {
                 System.out.println(s);
             }
         };
@@ -67,22 +74,10 @@ public class ConsumerTest {
 
     private static void t2() {
         List<String> list = Arrays.asList("ab", "cd");
-        Consumer<String> consumer = System.out::println;
-        foreach(list, consumer);
+        // 打印字符串
+        list.forEach(System.out::println);
 
-        Consumer<String> consumer1 = s -> System.out.println(s.length());
-        foreach(list, consumer1);
-    }
-
-    private static <T> void foreach(List<T> list, Consumer<T> consumer) {
-        for (T t : list) {
-            consumer.accept(t);
-        }
-    }
-
-    static void t1() {
-        Consumer<String> c = System.out::println;
-        Consumer<String> len = s -> System.out.println(s.length());
-        len.andThen(c).accept("hello");
+        // 打印每个字符串的长度
+        list.forEach(s -> System.out.println(s.length()));
     }
 }

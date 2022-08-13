@@ -40,7 +40,6 @@ public class OptionalTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     static void orElseException() {
@@ -51,7 +50,6 @@ public class OptionalTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     static void orElseGet() {

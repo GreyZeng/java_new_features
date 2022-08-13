@@ -1,7 +1,12 @@
 package git.snippets.jdk8;
 
-import java.time.*;
-import java.time.temporal.ChronoUnit;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
+import static java.time.temporal.ChronoUnit.DAYS;
 
 /**
  * @author <a href="mailto:410486047@qq.com">Grey</a>
@@ -30,7 +35,7 @@ public class LocalDateTest {
 
     static void until() {
         LocalDate birthday = LocalDate.of(1989, 9, 27);
-        System.out.println(birthday.until(LocalDate.now(), ChronoUnit.DAYS));
+        System.out.println(birthday.until(LocalDate.now(), DAYS));
     }
 
     // 有时区的精确时间
