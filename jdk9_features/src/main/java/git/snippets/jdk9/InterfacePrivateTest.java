@@ -7,32 +7,39 @@ package git.snippets.jdk9;
  */
 public class InterfacePrivateTest {
     public static void main(String[] args) {
-        ChinaPeople chinaPeople = new ChinaPeople();
-        chinaPeople.sleep();
-        chinaPeople.eat();
-        chinaPeople.doXxx();
+        X x = new X();
+        x.sleep();
+        x.eat();
+        x.doXxx();
+        A.x();
     }
 }
 
-class ChinaPeople implements People {
+class X implements A {
     @Override
     public void sleep() {
-        System.out.println("躺着睡");
+        System.out.println("sleep");
     }
 }
 
-interface People {
+interface A {
     void sleep();
 
     default void eat() {
-        drink();
+        sleep();
     }
 
     default void doXxx() {
         drink();
+        x();
+    }
+
+    static void x() {
+        System.out.println("x");
     }
 
     private void drink() {
-        System.out.println("喝水");
+        System.out.println("drink");
+        x();
     }
 }
