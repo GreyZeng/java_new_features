@@ -1,6 +1,7 @@
 package git.snippets.jdk10;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -14,19 +15,25 @@ import java.util.stream.Collectors;
  */
 public class CollectionEnhance {
     public static void main(String[] args) {
-        testCopy();
-        unmodifiedTest();
+        var vegetables = new ArrayList<>(List.of("Brocolli", "Celery", "Carrot"));
+        var unmodifiable = Collections.unmodifiableList(vegetables);
+        vegetables.set(0, "Radish");
+        var v = unmodifiable.get(0);
+        unmodifiable.set(0, "XXX");
+        System.out.println(v);
+        System.out.println(unmodifiable);
     }
 
-    private static void testCopy() {
-        var list = new ArrayList<String>();
-        list.add("abc");
-        list.add("bcd");
-        List<String> copyList = List.copyOf(list);
-        list.add("test");
+    static void copyOfTest() {
+        var list = List.of("a", "b", "c");
+        var copyList = List.copyOf(list);
+        list.add("d");
+        // 由于copyList是副本， 所以copyList不会受到list的影响，打印出[a,b,c]
         System.out.println(copyList);
+        System.out.println(list);
+        // 由于是不可变集合，所以这里会报错
+        copyList.add("d");
     }
-
     static void unmodifiedTest() {
         List<String> list = List.of("b", "a", "b", "c");
         List<String> c1 = list.stream().collect(Collectors.toUnmodifiableList());
