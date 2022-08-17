@@ -2,6 +2,7 @@ package git.snippets.jdk10;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -27,9 +28,19 @@ public class CollectionEnhance {
     }
 
     static void unmodifiedTest() {
-        List<String> list = List.of("a", "b", "c");
-        list.stream().collect(Collectors.toUnmodifiableList());
-        list.stream().collect(Collectors.toUnmodifiableSet());
-        list.stream().collect(Collectors.toUnmodifiableSet());
+        List<String> list = List.of("b", "a", "b", "c");
+        List<String> c1 = list.stream().collect(Collectors.toUnmodifiableList());
+        System.out.println(c1);
+        // 会报错
+//        c1.add("c");
+//        System.out.println(c1);
+        Set<String> c2 = list.stream().collect(Collectors.toUnmodifiableSet());
+        System.out.println(c2);
+        // 会报错
+//        c2.add("a");
+//        System.out.println(c2);
+        // 会报错
+//        c2.add("e");
+//        System.out.println(c2);
     }
 }
