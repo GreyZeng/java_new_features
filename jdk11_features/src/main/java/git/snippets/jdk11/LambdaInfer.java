@@ -12,10 +12,6 @@ import java.util.Map;
  */
 public class LambdaInfer {
     public static void main(String[] args) {
-        lambdaTest();
-    }
-
-    static void lambdaTest() {
         Map<String, Integer> map = new HashMap<>(2);
         map.put("hello", 1);
         map.put("world", 2);
