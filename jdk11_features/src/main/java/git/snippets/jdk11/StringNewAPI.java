@@ -15,12 +15,12 @@ public class StringNewAPI {
         repeatTest();
         stripTest();
     }
-
+    // 按行打印
     private static void linesTest() {
         String abcd = "\na\nb\tc\td";
         abcd.lines().forEach(System.out::println);
     }
-
+    // String.isBlank()
     private static void isBlankTest() {
         String blank = "   ";
         System.out.println(blank.isBlank());
