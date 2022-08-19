@@ -13,11 +13,12 @@ import java.util.Locale;
 public class CompactNum {
     public static void main(String[] args) {
         test();
+        test2();
     }
 
     static void test() {
         System.out.println("Compact Formatting is:");
-        NumberFormat upvotes = NumberFormat.getCompactNumberInstance(new Locale("en", "US"), NumberFormat.Style.SHORT);
+        NumberFormat upvotes = NumberFormat.getCompactNumberInstance(new Locale("en", "US"), NumberFormat.Style.LONG);
 
         System.out.println(upvotes.format(100));
         System.out.println(upvotes.format(1000));
@@ -30,5 +31,24 @@ public class CompactNum {
         System.out.println(upvotes.format(1234));
         System.out.println(upvotes.format(123456));
         System.out.println(upvotes.format(12345678));
+        System.out.println(upvotes.format(123456789));
+    }
+
+    static void test2() {
+        System.out.println("Compact Formatting is:");
+        NumberFormat upvotes = NumberFormat.getCompactNumberInstance(new Locale("zh", "CN"), NumberFormat.Style.SHORT);
+
+        System.out.println(upvotes.format(100));
+        System.out.println(upvotes.format(1000));
+        System.out.println(upvotes.format(10000));
+        System.out.println(upvotes.format(100000));
+        System.out.println(upvotes.format(1000000));
+
+// 设置小数位数
+        upvotes.setMaximumFractionDigits(1);
+        System.out.println(upvotes.format(1234));
+        System.out.println(upvotes.format(123456));
+        System.out.println(upvotes.format(12345678));
+        System.out.println(upvotes.format(123456789));
     }
 }
