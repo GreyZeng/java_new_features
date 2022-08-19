@@ -3,6 +3,10 @@ package git.snippets.jdk12;
 /**
  * switch新用法
  * 预览特性，在jdk14正式引入
+ * IDEA 启用 预览功能
+ * <p>
+ * <a href="https://foojay.io/today/how-to-run-project-loom-from-intellij-idea/">how to run project loom from intellij idea</a>
+ * <p>
  *
  * @author <a href="mailto:410486047@qq.com">Grey</a>
  * @date 2021/11/29
@@ -10,7 +14,7 @@ package git.snippets.jdk12;
  */
 public class NewSwitch {
     public static void main(String[] args) {
-        //test("apple");
+//        test("apple");
 //        test2("march");
     }
 
@@ -22,6 +26,7 @@ public class NewSwitch {
 //
 //        }
 //    }
+//
 //    static void test2(String day) {
 //        String season = switch (day) {
 //            case "march", "april", "may" -> "春天";
