@@ -1,4 +1,4 @@
-package git.snippets.reactor;
+package git.snippets.jdk17;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

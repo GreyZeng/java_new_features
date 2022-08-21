@@ -1,4 +1,4 @@
-package git.snippets.reactor;
+package git.snippets.jdk17;
 
 /**
  * 密封类（Sealed Classes）
