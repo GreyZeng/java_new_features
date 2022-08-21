@@ -13,9 +13,15 @@ import java.util.Arrays;
 public class InstanceofInJdk16 {
     public static void main(String[] args) {
         Object o = new ArrayList<String>();
+        // jdk 16
         if (o instanceof ArrayList list) {
             list.add("a");
         }
-        System.out.println(o);
+
+        // before jdk 16
+        if (o instanceof ArrayList) {
+            ArrayList list = (ArrayList) o;
+            list.add("a");
+        }
     }
 }
