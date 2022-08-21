@@ -11,6 +11,12 @@ package git.snippets.jdk14;
 public class NullPointerTest {
     public static void main(String[] args) {
         String s = null;
-        System.out.println(s.isBlank());
+        System.out.println(s.isEmpty());
     }
 }
+
+// Java SE 14 之前的报错信息如下
+//    Exception in thread "main" java.lang.NullPointerException
+//        at git.snippets.jdk7.NullPointerTest.main(NullPointerTest.java:11)
+// Java SE 14 的报错信息如下
+

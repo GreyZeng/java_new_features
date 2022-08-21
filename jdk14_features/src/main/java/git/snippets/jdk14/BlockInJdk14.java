@@ -9,7 +9,7 @@ package git.snippets.jdk14;
  * @since 14
  */
 public class BlockInJdk14 {
-//    public static void main(String[] args) {
+    public static void main(String[] args) {
 //        String content = """
 //                {
 //                    "hello": 1,\
@@ -18,5 +18,5 @@ public class BlockInJdk14 {
 //                }
 //                 """;
 //        System.out.println(content);
-//    }
+    }
 }

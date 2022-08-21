@@ -10,11 +10,28 @@ import java.util.ArrayList;
  * @since 14
  */
 public class InstanceofInJdk14 {
-//    public static void main(String[] args) {
-//        Object obj = new ArrayList<>();
-//        if (obj instanceof ArrayList list) {
-//            list.add("abc");
+    public static void main(String[] args) {
+        Object obj = new H();
+        // Before Java 14:
+        if (obj instanceof H) {
+            H jd1 = (H) obj;
+            jd1.setId(1);
+        }
+        // Java 14+
+//        if (obj instanceof H jd2) {
+//            jd2.setId(1);
 //        }
-//        System.out.println(obj);
-//    }
+    }
+}
+
+class H {
+    private int id;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
 }
