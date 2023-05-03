@@ -25,6 +25,11 @@ public class RecordTest {
             System.out.println("pre jdk 19 object is a position, x = " + points.x()
                     + ", y = " + points.y());
         }
+        // Java SE 20 废弃这种写法
+        if (object instanceof Points(int x, int y) points) {
+            System.out.println("pre jdk 19 object is a position, x = " + points.x()
+                    + ", y = " + points.y());
+        }
         switch (object) {
             case Points position -> System.out.println("pre jdk 19 object is a position, x = " + position.x()
                     + ", y = " + position.y());
