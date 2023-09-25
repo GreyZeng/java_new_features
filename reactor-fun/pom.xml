@@ -5,7 +5,7 @@
     <parent>
         <artifactId>java_new_features</artifactId>
         <groupId>git.snippets</groupId>
-        <version>1.1.RELEASE</version>
+        <version>20230925</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>reactor-fun</artifactId>

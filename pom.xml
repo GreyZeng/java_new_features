@@ -7,7 +7,7 @@
     <groupId>git.snippets</groupId>
     <artifactId>java_new_features</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.RELEASE</version>
+    <version>20230925</version>
     <modules>
         <module>jdk1_7_features</module>
         <module>jdk1_8_features</module>
