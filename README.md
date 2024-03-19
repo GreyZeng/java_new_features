@@ -1,6 +1,6 @@
 ## 博客链接
 
-[Java SE 7及以后各版本新增特性，持续更新中...](https://www.cnblogs.com/greyzeng/tag/JDK%E6%96%B0%E7%89%B9%E6%80%A7/)
+[Java SE 7及以后各版本新增特性，持续更新中...](https://blog.csdn.net/hotonyhui/category_1262363.html)
 
 ## 代码
 
