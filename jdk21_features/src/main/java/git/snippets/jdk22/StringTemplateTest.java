@@ -1,4 +1,4 @@
-package git.snippets.jdk21;
+package git.snippets.jdk22;
 
 
 import java.time.LocalDate;

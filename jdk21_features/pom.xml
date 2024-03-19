@@ -4,7 +4,7 @@
     <parent>
         <artifactId>java_new_features</artifactId>
         <groupId>git.snippets</groupId>
-        <version>20230925</version>
+        <version>20240319</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 

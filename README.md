@@ -6,5 +6,3 @@
 
 源仓库: [Github：java_new_features](https://github.com/GreyZeng/java_new_features.git)
 
-镜像仓库: [GitCode：java_new_features](https://gitcode.net/hotonyhui/java_new_features.git)
-

@@ -1,4 +1,4 @@
-package git.snippets.jdk21;
+package git.snippets.jdk22;
 
 /**
  * record 模式匹配增强
