@@ -26,6 +26,7 @@
         <module>jdk20_features</module>
         <module>jdk21_features</module>
         <module>jdk22_features</module>
+        <module>snippets</module>
     </modules>
     <name>${artifactId}</name>
     <properties>
