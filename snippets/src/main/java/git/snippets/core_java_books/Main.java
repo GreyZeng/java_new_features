@@ -1,6 +1,6 @@
 package git.snippets.core_java_books;
 
-import java.util.Random;
+import java.util.*;
 
 public class Main {
     void main() {
@@ -13,6 +13,16 @@ public class Main {
             }
         };
         task.run();
+        List<String> names = new ArrayList<>();
+        names.add("John");
+        names.add("Jane");
+        names.add(null);
+        names.add("Bob");
+        names.add("Mary");
+        names.add(null);
+        System.out.println(names);
+        names.removeIf(Objects::isNull);
+        System.out.println(names);
     }
 
     private void doWork() {
