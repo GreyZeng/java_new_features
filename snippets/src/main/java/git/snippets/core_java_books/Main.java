@@ -23,6 +23,9 @@ public class Main {
         System.out.println(names);
         names.removeIf(Objects::isNull);
         System.out.println(names);
+        names.forEach(System.out::println);
+        System.out.println("");
+        names.forEach(x -> System.out.println(x));
     }
 
     private void doWork() {
