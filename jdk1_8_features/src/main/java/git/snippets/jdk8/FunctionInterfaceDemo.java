@@ -33,6 +33,10 @@ public class FunctionInterfaceDemo {
         FunctionDemo demo = (name, age) -> System.out.println("我叫" + name + "我今年" + age + "岁");
         demo.say("zhangsan", 20);
         demo.hi("zhanshang", 20);
+        // 另一个函数式接口的示例
+        String[] names = {"abc", "bddn", "dddae", "cf"};
+        Arrays.sort(names, (first, second) -> first.length() - second.length());
+        Arrays.stream(names).forEach(System.out::println);
     }
 
     // 根据不同条件进行筛选或判断
