@@ -1,4 +1,4 @@
-package git.snippets.jdk23;
+package git.snippets.jdk24;
 
 import module java.base;
 import module java.sql;

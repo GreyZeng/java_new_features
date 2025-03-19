@@ -7,7 +7,7 @@
     <groupId>git.snippets</groupId>
     <artifactId>java_new_features</artifactId>
     <packaging>pom</packaging>
-    <version>20240918</version>
+    <version>20250319</version>
     <modules>
         <module>jdk1_7_features</module>
         <module>jdk1_8_features</module>
@@ -27,10 +27,11 @@
         <module>jdk21_features</module>
         <module>jdk22_features</module>
         <module>jdk23_features</module>
+        <module>jdk24_features</module>
     </modules>
     <name>${artifactId}</name>
     <properties>
-        <java.version>23</java.version>
+        <java.version>24</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
