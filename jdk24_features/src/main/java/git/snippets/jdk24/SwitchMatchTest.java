@@ -18,6 +18,7 @@ public class SwitchMatchTest {
         switchMatch(3.0d);
     }
 
+    // instanceof 同理
     static void switchMatch(Object obj) {
         switch (obj) {
             case String s when s.length() > 5 -> System.out.println(s.toUpperCase());
