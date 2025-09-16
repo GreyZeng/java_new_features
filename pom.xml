@@ -28,10 +28,11 @@
         <module>jdk22_features</module>
         <module>jdk23_features</module>
         <module>jdk24_features</module>
+        <module>jdk25_features</module>
     </modules>
     <name>${artifactId}</name>
     <properties>
-        <java.version>24</java.version>
+        <java.version>25</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
